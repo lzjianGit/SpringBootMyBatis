@@ -1,0 +1,347 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MTOS-生产管理系统</title>
+  <meta name="description" content="这是MTOS-生产管理系统页面">
+  <meta name="keywords" content="index">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet"  href="#springUrl('')/assets/css/jquery.gritter.css"  />
+  <link rel="stylesheet"  href="#springUrl('')/assets/css/bootstrap.css"  />
+  <link rel="stylesheet"  href="#springUrl('')/assets/css/ace.min.css" />
+  <link rel="stylesheet"  href="#springUrl('')/assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="#springUrl('')/assets/css/jquery-ui-1.10.3.full.min.css" />  
+  <script src="#springUrl('')/js/jquery-2.0.3.min.js"></script>
+  <script src="#springUrl('')/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+  <script src="#springUrl('')/assets/js/jquery.ui.touch-punch.min.js"></script>
+  <script src="#springUrl('')/assets/js/jquery.datepicker.zh-CN.js"></script>
+  <script src="#springUrl('')/assets/js/bootstrap.min.js"></script>
+  <script src="#springUrl('')/assets/js/ace.min.js"></script>
+  <script src="#springUrl('')/assets/js/ace-extra.min.js"></script>
+  <script src="#springUrl('')/assets/js/jquery.gritter.min.js"></script>
+  <script src="#springUrl('')/js/inputLimit.js"></script>
+  <script src="#springUrl('')/js/common.js"></script>
+  <script src="#springUrl('')/js/initemCheck.js"></script>    
+  <script src="#springUrl('')/js/bootPagination.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</head>
+<body>
+  <!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
+  <input type="hidden" id="savedMenuId" value="$!savedMenuId">
+  <input type="hidden" id="userId" value="$!user.id">
+</head>
+<body>
+  <header class="am-topbar admin-header">
+    <div class="am-topbar-brand"><img src="assets/i/logo.png"></div>
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+      <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
+       <li class="am-dropdown tognzhi" data-am-dropdown>
+        <ul class="am-dropdown-content">
+        </ul>
+      </li>
+      <li class="am-hide-sm-only" style="float: right;"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+    </ul>
+  </div>
+</header>
+<div class="am-cf admin-main"> 
+  <div class="nav-navicon admin-main admin-sidebar">
+    <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：$user.userName</div><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" id="mpass">修改密码</a>
+    <a href="/logout">注销</a>
+    <div class="sideMenu">
+      <h3 class="am-icon-flag"><em></em><a href="#">生产信息维护</a></h3>
+      <ul>
+        <li><a href="">员工管理</a></li>
+        <li><a href="">客户管理</a></li>
+        <li><a href="">供应商管理</a></li>
+        <li><a href="">材料管理</a></li>
+        <li><a href="">工艺管理</a></li>
+        <li><a href="">产品管理</a></li>
+      </ul>
+      <h3 class="am-icon-cart-plus"><em></em> <a href="#">生产订单管理</a></h3>
+      <ul>
+        <li><a href="">订单流程卡</a></li>
+        <li><a href="">物料清单</a></li>
+      </ul>
+      <h3 class="am-icon-users"><em></em><a href="#">生产效率</a></h3>
+      <ul>
+        <li><a href=""></a>工序效率</li>
+      </ul>
+      <h3 class="am-icon-volume-up"><em></em> <a href="#">费用统计</a></h3>
+      <ul>
+        <li><a href="">订单成本</a></li>
+        <li><a href="">员工工资</a></li>
+      </ul>
+      <h3 class="am-icon-gears"><em></em> <a href="#">系统信息管理</a></h3>
+      <ul>
+        <li><a href="">用户管理</a></li>
+        <li><a href="">权限集管理</a></li>
+        <li><a href="">公司管理</a></li>
+      </ul>
+    </div>
+    <!-- sideMenu End --> 
+    <script type="text/javascript">
+     jQuery(".sideMenu").slide({
+				titCell:"h3", //鼠标触发对象
+				targetCell:"ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+				effect:"slideDown", //targetCell下拉效果
+				delayTime:300 , //效果时间
+				triggerTime:150, //鼠标延迟触发时间（默认150）
+				defaultPlay:true,//默认是否执行效果（默认true）
+				returnDefault:true //鼠标从.sideMen移走后返回默认状态（默认false）
+      });
+    </script> 
+  </div>
+  <div class=" admin-content">
+    <div class="daohang">
+     <ul>
+      <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs"> 首页 </li>
+    </ul>
+  </div>
+  <div class="admin">
+   <div class="admin-index">
+    <dl data-am-scrollspy="{animation: 'slide-right', delay: 100}">
+      <dt class="qs"><i class="am-icon-shopping-cart"></i></dt>
+      <dd>455</dd>
+      <dd class="f12">订单统计</dd>
+    </dl>
+    <dl data-am-scrollspy="{animation: 'slide-right', delay: 300}">
+      <dt class="cs"><i class="am-icon-area-chart"></i></dt>
+      <dd>455</dd>
+      <dd class="f12">材料统计</dd>
+    </dl>
+    <dl data-am-scrollspy="{animation: 'slide-right', delay: 600}">
+      <dt class="hs"><i class="am-icon-users"></i></dt>
+      <dd>455</dd>
+      <dd class="f12">流程统计</dd>
+    </dl>
+    <dl data-am-scrollspy="{animation: 'slide-right', delay: 900}">
+      <dt class="ls"><i class="am-icon-cny"></i></dt>
+      <dd>455</dd>
+      <dd class="f12">成本统计</dd>
+    </dl>
+  </div>
+  <div class="admin-biaoge">
+    <div class="xinxitj">信息概况</div>
+    <table class="am-table">
+      <thead>
+        <tr>
+          <th>新增订单</th>
+          <th>新增材料</th>
+          <th>新增流程</th>
+          <th>新增成本</th>
+          <th>日期</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>+666</td>
+          <td>+666</td>
+          <td>+666</td>
+          <td>+666</td>
+          <td>2017-07-07 12:38:23</td>
+        </tr>
+        <tr>
+          <td>+233</td>
+          <td>+233</td>
+          <td>+233</td>
+          <td>+233</td>
+          <td>2017-07-06 12:38:23</td>
+        </tr>
+        <tr>
+          <td>+888</td>
+          <td>+888</td>
+          <td>+888</td>
+          <td>+888</td>
+          <td>2017-07-05 12:38:23</td>
+        </tr>
+        <tr>
+          <td>+999</td>
+          <td>+999</td>
+          <td>+999</td>
+          <td>+999</td>
+          <td>2017-07-04 12:38:23</td>
+        </tr>
+        <tr>
+          <td>+688</td>
+          <td>+688</td>
+          <td>+688</td>
+          <td>+688</td>
+          <td>2017-07-03 12:38:23</td>
+        </tr>
+        <tr>
+          <td>+8848</td>
+          <td>+8848</td>
+          <td>+8848</td>
+          <td>+8848</td>
+          <td>2017-07-02 12:38:23</td>
+        </tr>
+      </table>
+    </div>
+    <div class="shuju">
+      <div class="shujuone">
+        <dl>
+          <dt>全盘收入：  1356666</dt>
+          <dt>全盘支出：   5646465.98</dt>
+          <dt>全盘利润：  546464</dt>
+        </dl>
+        <ul>
+          <h2>26.83%</h2>
+          <li>全盘拨出</li>
+        </ul>
+      </div>
+      <div class="slideTxtBox">
+        <div class="hd">
+          <ul>
+            <li>其他信息</li>
+            <li>工作进度表</li>
+          </ul>
+        </div>
+        <div class="bd">
+          <ul>
+            <table width="100%" class="am-table">
+              <tbody>
+                <tr>
+                  <td width="7%"  align="center">1 </td>
+                  <td width="83%" >工作进度名称</td>
+                  <td width="10%"  align="center"><a href="#">10%</a></td>
+                </tr>
+                <tr>
+                  <td align="center">1 </td>
+                  <td>工作进度名称</td>
+                  <td  align="center"><a href="#">10%</a></td>
+                </tr>
+                <tr>
+                  <td  align="center">1 </td>
+                  <td>工作进度名称</td>
+                  <td  align="center"><a href="#">10%</a></td>
+                </tr>
+                <tr>
+                  <td  align="center">1 </td>
+                  <td>工作进度名称</td>
+                  <td  align="center"><a href="#">10%</a></td>
+                </tr>
+
+                <tr>
+                  <td  align="center">1 </td>
+                  <td>工作进度名称</td>
+                  <td  align="center"><a href="#">10%</a></td>
+                </tr>
+
+                <tr>
+                  <td  align="center">1 </td>
+                  <td>工作进度名称</td>
+                  <td  align="center"><a href="#">10%</a></td>
+                </tr>
+
+                <tr>
+                  <td  align="center">1 </td>
+                  <td>工作进度名称</td>
+                  <td  align="center"><a href="#">10%</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </ul>
+          <ul>
+            <table class="am-table">
+              <tbody>
+                <tr>
+                  <td>普卡</td>
+                  <td>普卡</td>
+                  <td><a href="#">4534</a></td>
+                  <td>+20</td>
+                  <td> 4534 </td>
+                </tr>
+                <tr>
+                  <td>银卡</td>
+                  <td>银卡</td>
+                  <td>4534</td>
+                  <td>+2</td>
+                  <td> 4534 </td>
+                </tr>
+                <tr>
+                  <td>金卡</td>
+                  <td>金卡</td>
+                  <td>4534</td>
+                  <td>+10</td>
+                  <td> 4534 </td>
+                </tr>
+                <tr>
+                  <td>钻卡</td>
+                  <td>钻卡</td>
+                  <td>4534</td>
+                  <td>+50</td>
+                  <td> 4534 </td>
+                </tr>
+                <tr>
+                  <td>合计</td>
+                  <td>合计</td>
+                  <td>4534</td>
+                  <td>+50</td>
+                  <td> 4534 </td>
+                </tr>
+              </tbody>
+            </table>
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript">jQuery(".slideTxtBox").slide();</script> 
+    </div>
+    <div class="foods">
+     <ul>版权所有@2015</ul>
+     <dl><a href="" title="返回头部" class="am-icon-btn am-icon-arrow-up"></a></dl>
+   </div>
+ </div>
+</div>
+</div>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/polyfill/rem.min.js"></script>
+<script src="assets/js/polyfill/respond.min.js"></script>
+<script src="assets/js/amazeui.legacy.js"></script>
+<![endif]--> 
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+</body>
+<script type="text/javascript">
+$("a[id^='menu_']").unbind("click").bind("click",function(){
+  $("#sidebar").find("li[class='open active']").removeClass("open active");
+  $(this).parents("li").addClass("open active");
+  $(this).parents("ul.submenu").attr("style","");
+  $(".main-content").empty();
+  var data = {menuId:$(this).attr('id'),userId:$("#userId").val()};
+  var curl = $(this).attr('contenturl');
+  $(".main-content").load(curl,data,function(responseText,status){
+         if(status == "error"){
+            $(".main-content").html(responseText);
+         }
+          
+  });
+  
+  
+});
+
+var savedMenuId = $("#savedMenuId").val();
+if(savedMenuId != "")
+$("#"+savedMenuId).trigger('click');
+
+
+$("#mpass").unbind("click").bind("click",function(){
+  toConsole("modifypass",{});
+})
+
+</script>
+</html>
